@@ -8,6 +8,6 @@ class PrincipalController extends Controller
 {
     public function principal()
     {
-        return 'Principal';
+        return view('site.principal');
     }
 }
