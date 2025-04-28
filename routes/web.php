@@ -14,7 +14,7 @@ Route::get('/principal', [PrincipalController::class, 'principal']);
 Route::get('/contato', [ContatoController::class, 'contato']);
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
 
-Route::get('/contato/{nome}/{email}/{telefone}', function ($nome, $email, $telefone) {
+Route::get('/contato/{nome}/{email?}/{telefone?}', function ($nome, $email = null, $telefone = null) {
     return "Olá $nome, seu email é $email e seu telefone é $telefone";
 });
 
