@@ -2,18 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\SobreNosController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('/contato', function () {
-    return 'Contato';
-});
-
-Route::get('/sobre-nos', function () {
-    return 'Sobre Nós';
-});
+Route::get('/principal', [PrincipalController::class, 'principal']);
+Route::get('/contato', [ContatoController::class, 'contato']);
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
