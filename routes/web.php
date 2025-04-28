@@ -14,6 +14,10 @@ Route::get('/principal', [PrincipalController::class, 'principal']);
 Route::get('/contato', [ContatoController::class, 'contato']);
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
 
+Route::get('/contato/{nome}/{email}/{telefone}', function ($nome, $email, $telefone) {
+    return "Olá $nome, seu email é $email e seu telefone é $telefone";
+});
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
