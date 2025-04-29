@@ -22,6 +22,18 @@ Route::get('/principal/{nome}/{categoria_id}', function ($nome, $categoria_id) {
     return "Olá $nome, sua categoria_id é $categoria_id";
 })->where(['nome' => '[aA-zZ]+', 'categoria_id' => '[0-9]+']);
 
+Route::get('/clientes', function () {
+    return "Clientes";
+})->name('clientes');
+
+Route::get('/produtos', function () {
+    return "Produtos";
+})->name('produtos');
+
+Route::get('/fornecedores', function () {
+    return "Fornecedores";
+})->name('fornecedores');
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
