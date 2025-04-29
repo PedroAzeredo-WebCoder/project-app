@@ -65,7 +65,8 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ],
-        "artisan": "docker-compose exec php php artisan"
+        "artisan": "docker-compose exec php php artisan",
+        "comp": "docker-compose exec php composer"
     },
     "extra": {
         "laravel": {
