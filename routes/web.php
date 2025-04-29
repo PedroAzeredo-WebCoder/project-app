@@ -18,6 +18,10 @@ Route::get('/contato/{nome}/{email?}/{telefone?}', function ($nome, $email = nul
     return "Olá $nome, seu email é $email e seu telefone é $telefone";
 });
 
+Route::get('/principal/{nome}/{categoria_id}', function ($nome, $categoria_id) {
+    return "Olá $nome, sua categoria_id é $categoria_id";
+})->where(['nome' => '[aA-zZ]+', 'categoria_id' => '[0-9]+']);
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
