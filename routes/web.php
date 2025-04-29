@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreNosController;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -38,6 +39,14 @@ Route::prefix('admin')
             return "Fornecedores";
         })->name('fornecedores');
     });
+
+Route::get('/rota1', function () {
+    return Redirect::route('rota2');
+})->name('rota1');
+
+Route::get('/rota2', function () {
+    return "Rota 2";
+})->name('rota2');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
