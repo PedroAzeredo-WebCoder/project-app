@@ -48,6 +48,10 @@ Route::get('/rota2', function () {
     return "Rota 2";
 })->name('rota2');
 
+Route::fallback(function () {
+    return "Página não encontrada";
+});
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
