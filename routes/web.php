@@ -10,9 +10,9 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('/principal', [PrincipalController::class, 'principal']);
-Route::get('/contato', [ContatoController::class, 'contato']);
-Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
+Route::get('/principal', [PrincipalController::class, 'principal'])->name('principal');
+Route::get('/contato', [ContatoController::class, 'contato'])->name('contato');
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('sobre-nos');
 
 Route::get('/contato/{nome}/{email?}/{telefone?}', function ($nome, $email = null, $telefone = null) {
     return "Olá $nome, seu email é $email e seu telefone é $telefone";
