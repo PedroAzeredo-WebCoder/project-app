@@ -53,7 +53,7 @@ Route::fallback(function () {
     return "Página não encontrada";
 });
 
-Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');
+Route::get('/teste/{tipo}/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
