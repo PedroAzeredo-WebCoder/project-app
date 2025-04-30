@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\TesteController;
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
@@ -51,6 +52,8 @@ Route::get('/rota2', function () {
 Route::fallback(function () {
     return "Página não encontrada";
 });
+
+Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
