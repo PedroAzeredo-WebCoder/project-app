@@ -16,14 +16,29 @@
                         <p>{{ $fornecedor['nome'] }}</p>
                     @endif
                 @endisset
-                
+
                 @empty($fornecedor['cnpj'])
-                    <p>CNPJ não informado</p>
+                    <p>CNPJ: Não informado</p>
                 @else
                     <p>CNPJ: {{ $fornecedor['cnpj'] }}</p>
                 @endempty
 
                 Status: {{ $fornecedor['status'] ?? 'Não informado' }}
+
+                @switch($fornecedor['ddd'])
+                    @case('51')
+                        <p>DDD: Rio Grande do Sul</p>
+                    @break
+
+                    @case('11')
+                        <p>DDD: São Paulo</p>
+                    @break
+
+                    @default
+                        <p>DDD: Não informado</p>
+                @endswitch
+
+                <hr>
             @endforeach
         @endunless
     @else
