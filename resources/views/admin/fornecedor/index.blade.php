@@ -1,14 +1,14 @@
 <div>
-    <h1>Fornecedores</h1>
-    {{ 'Teste' }}
-
-    <?php 
-    echo "Hello World";
-    ?>
-
     {{-- This comment will not be present in the rendered HTML --}}
-</div>
+    <h1>Fornecedores</h1>
 
-@php
-echo "Hello World";
-@endphp
+    @foreach ($fornecedores as $fornecedor)
+        @if ($fornecedor['status'] == 'F')
+            <p style="color: red;">{{ $fornecedor['nome'] }}</p>
+        @elseif ($fornecedor['status'] == 'T')
+            <p style="color: green;">{{ $fornecedor['nome'] }}</p>
+        @else
+            <p>{{ $fornecedor['nome'] }}</p>
+        @endif  
+    @endforeach
+</div>
