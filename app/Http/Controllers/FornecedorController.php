@@ -14,20 +14,23 @@ class FornecedorController extends Controller
                 'status' => 'F',
                 'cnpj' => '12345678901234',
                 'ddd' => '51',
-                'telefone' => '994442101'
+                'telefone' => '994442101',
+                'categorias' => ['eletronicos', 'informatica']
             ],
             1 => [
                 'nome' => 'Fornecedor 2',
                 'status' => 'T',
                 'cnpj' => '12345678901235',
                 'ddd' => '11',
-                'telefone' => '999999999'
+                'telefone' => '999999999',
+                'categorias' => ['informatica', 'moveis']
             ],
             2 => [
                 'nome' => 'Fornecedor 3',
                 'cnpj' => NULL,
                 'ddd' => NULL,
-                'telefone' => NULL
+                'telefone' => NULL,
+                'categorias' => ['informatica', 'moveis']
             ]
         ];
 

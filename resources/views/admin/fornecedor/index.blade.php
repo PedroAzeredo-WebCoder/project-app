@@ -38,6 +38,20 @@
                         <p>DDD: Não informado</p>
                 @endswitch
 
+                {{-- Exibe todas as categorias em uma linha separada por vírgula usando @for --}}
+                @if (!empty($fornecedor['categorias']) && is_array($fornecedor['categorias']))
+                    <p>Categorias:
+                        @for ($i = 0; $i < count($fornecedor['categorias']); $i++)
+                            {{ $fornecedor['categorias'][$i] }}
+                            @if ($i < count($fornecedor['categorias']) - 1)
+                                ,
+                            @endif
+                        @endfor
+                    </p>
+                @else
+                    <p>Categorias: Não informado</p>
+                @endif
+
                 <hr>
             @endforeach
         @endunless
