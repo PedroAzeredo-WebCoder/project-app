@@ -14,13 +14,16 @@
                         <p style="color: green;">{{ $fornecedor['nome'] }}</p>
                     @else
                         <p>{{ $fornecedor['nome'] }}</p>
-                    @endif  
+                    @endif
                 @endisset
+                
                 @empty($fornecedor['cnpj'])
                     <p>CNPJ não informado</p>
                 @else
                     <p>CNPJ: {{ $fornecedor['cnpj'] }}</p>
                 @endempty
+
+                Status: {{ $fornecedor['status'] ?? 'Não informado' }}
             @endforeach
         @endunless
     @else
