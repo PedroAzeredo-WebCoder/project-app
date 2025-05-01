@@ -6,6 +6,7 @@ use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
+use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
@@ -25,7 +26,6 @@ Route::get('/principal/{nome}/{categoria_id}', function ($nome, $categoria_id) {
 })->where(['nome' => '[aA-zZ]+', 'categoria_id' => '[0-9]+']);
 
 Route::prefix('admin')
-    ->middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
         Route::get('/clientes', function () {
@@ -36,9 +36,7 @@ Route::prefix('admin')
             return "Produtos";
         })->name('produtos');
 
-        Route::get('/fornecedores', function () {
-            return "Fornecedores";
-        })->name('fornecedores');
+        Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('fornecedores');
     });
 
 Route::get('/rota1', function () {
