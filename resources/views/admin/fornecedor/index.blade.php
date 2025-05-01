@@ -52,6 +52,21 @@
                     <p>Categorias: Não informado</p>
                 @endif
 
+                @php
+                    $i = 0;
+                @endphp
+                @if (!empty($fornecedor['atendimento']) && is_array($fornecedor['atendimento']))
+                    <p>Atendimentos:
+                        @php $i = 0; @endphp
+                        @while ($i < count($fornecedor['atendimento']))
+                            {{ $fornecedor['atendimento'][$i] }}@if($i < count($fornecedor['atendimento']) - 1), @endif
+                            @php $i++; @endphp
+                        @endwhile
+                    </p>
+                @else
+                    <p>Atendimentos: Não informado</p>
+                @endif
+
                 <hr>
             @endforeach
         @endunless
