@@ -7,13 +7,20 @@
             <p>Nenhum fornecedor encontrado</p>
         @else
             @foreach ($fornecedores as $fornecedor)
-                @if ($fornecedor['status'] == 'F')
-                    <p style="color: red;">{{ $fornecedor['nome'] }}</p>
-                @elseif ($fornecedor['status'] == 'T')
-                    <p style="color: green;">{{ $fornecedor['nome'] }}</p>
+                @isset($fornecedor['status'])
+                    @if ($fornecedor['status'] == 'F')
+                        <p style="color: red;">{{ $fornecedor['nome'] }}</p>
+                    @elseif ($fornecedor['status'] == 'T')
+                        <p style="color: green;">{{ $fornecedor['nome'] }}</p>
+                    @else
+                        <p>{{ $fornecedor['nome'] }}</p>
+                    @endif  
+                @endisset
+                @empty($fornecedor['cnpj'])
+                    <p>CNPJ não informado</p>
                 @else
-                    <p>{{ $fornecedor['nome'] }}</p>
-                @endif  
+                    <p>CNPJ: {{ $fornecedor['cnpj'] }}</p>
+                @endempty
             @endforeach
         @endunless
     @else
