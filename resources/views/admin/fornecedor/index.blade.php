@@ -7,6 +7,16 @@
             <p>Nenhum fornecedor encontrado</p>
         @else
             @foreach ($fornecedores as $fornecedor)
+                Interação {{ $loop->iteration }}
+                @if ($loop->first)
+                    <p>Primeiro fornecedor</p>
+                @endif
+                @if ($loop->last)
+                    <p>Último fornecedor</p>
+
+                    Total: {{ $loop->count }}
+                @endif
+
                 @isset($fornecedor['status'])
                     @if ($fornecedor['status'] == 'F')
                         <p style="color: red;">{{ $fornecedor['nome'] }}</p>
