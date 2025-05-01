@@ -16,7 +16,8 @@ class FornecedorController extends Controller
                 'ddd' => '51',
                 'telefone' => '994442101',
                 'categorias' => ['eletronicos', 'informatica'],
-                'atendimento' => ['RS', 'SC', 'PR']
+                'atendimento' => ['RS', 'SC', 'PR'],
+                'horarios' => ['08:00', '18:00']
             ],
             1 => [
                 'nome' => 'Fornecedor 2',
@@ -25,7 +26,8 @@ class FornecedorController extends Controller
                 'ddd' => '11',
                 'telefone' => '999999999',
                 'categorias' => ['informatica', 'moveis'],
-                'atendimento' => ['SP', 'RJ', 'MG']
+                'atendimento' => ['SP', 'RJ', 'MG'],
+                'horarios' => ['08:00', '18:00']
             ],
             2 => [
                 'nome' => 'Fornecedor 3',
@@ -33,7 +35,8 @@ class FornecedorController extends Controller
                 'ddd' => NULL,
                 'telefone' => NULL,
                 'categorias' => ['informatica', 'moveis'],
-                'atendimento' => ['SP', 'RJ', 'MG']
+                'atendimento' => ['SP', 'RJ', 'MG'],
+                'horarios' => ['08:00', '18:00']
             ]
         ];
 

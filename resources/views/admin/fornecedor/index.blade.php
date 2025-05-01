@@ -59,13 +59,26 @@
                     <p>Atendimentos:
                         @php $i = 0; @endphp
                         @while ($i < count($fornecedor['atendimento']))
-                            {{ $fornecedor['atendimento'][$i] }}@if($i < count($fornecedor['atendimento']) - 1), @endif
+                            {{ $fornecedor['atendimento'][$i] }}@if ($i < count($fornecedor['atendimento']) - 1)
+                                ,
+                            @endif
                             @php $i++; @endphp
                         @endwhile
                     </p>
                 @else
                     <p>Atendimentos: Não informado</p>
                 @endif
+
+                <p>Horários:
+                    @forelse ($fornecedor['horarios'] ?? [] as $index => $horario)
+                        {{ $horario }}
+                        @if (!$loop->last)
+                            ,
+                        @endif
+                    @empty
+                        Não informado
+                    @endforelse
+                </p>
 
                 <hr>
             @endforeach
