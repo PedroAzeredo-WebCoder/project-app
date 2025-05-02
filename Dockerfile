@@ -22,6 +22,18 @@ FROM node:20-alpine AS assets
 
 WORKDIR /app
 
+# Instala dependências nativas para build de imagens (imagemin, gifsicle, etc)
+RUN apk add --no-cache \
+    autoconf \
+    automake \
+    libtool \
+    nasm \
+    make \
+    g++ \
+    python3 \
+    pkgconfig \
+    zlib-dev
+
 # 1) Copia package.json e package-lock.json para cache de dependências
 COPY package.json package-lock.json ./
 RUN npm ci
