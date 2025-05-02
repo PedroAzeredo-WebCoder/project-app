@@ -12,9 +12,8 @@ export default defineConfig({
     laravel({
       input: [
         'resources/js/app.ts',
-        'resources/js/admin.ts',
-        'resources/js/auth.ts',
         'resources/css/app.css',
+        'resources/scss/app.scss',
       ],
       ssr: 'resources/js/ssr.ts',
       refresh: true,
@@ -36,7 +35,7 @@ export default defineConfig({
         { src: 'node_modules/slick-carousel/slick/fonts/*', dest: 'fonts' },
         { src: 'node_modules/slick-carousel/slick/ajax-loader.gif', dest: 'img' },
         { src: 'resources/img/*', dest: 'img' },
-        { src: 'resources/fonts/*', dest: 'fonts' },
+        //{ src: 'resources/fonts/*', dest: 'fonts' },
       ],
     }),
 
@@ -50,26 +49,12 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'resources/js'),
-      jquery: 'jquery/src/jquery',
       'ziggy-js': path.resolve(__dirname, 'vendor/tightenco/ziggy'),
     },
   },
 
-  server: {
-    host: '0.0.0.0',
-    port: 5173,
-    cors: true,
-    proxy: {
-      '/api': {
-        target: process.env.APP_URL || 'http://localhost:8000',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
-
   optimizeDeps: {
-    include: ['jquery', 'axios', 'bootstrap'],
+    include: ['axios', 'bootstrap'],
   },
 
   build: {
