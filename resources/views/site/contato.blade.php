@@ -1,7 +1,5 @@
 @extends('site.components.layout')
 
-@section('titulo', $titulo)
-
 @section('content')
     <main>
         <h1>Contato</h1>
