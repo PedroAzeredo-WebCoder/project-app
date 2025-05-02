@@ -15,11 +15,11 @@ export default defineConfig({
         'resources/css/app.css',
         'resources/scss/app.scss',
       ],
-      ssr: 'resources/js/ssr.ts',
       refresh: true,
+      buildDirectory: 'build', // pasta dentro de public
     }),
 
-    // Suporte Vue (se ainda usar Vue)
+    // Suporte Vue (remova se não usar)
     vue({
       template: {
         transformAssetUrls: {
@@ -29,13 +29,13 @@ export default defineConfig({
       },
     }),
 
-    // Copia estáticos (fonts, imagens) para public/build
+    // Copia estáticos (fonts, imagens) para public/build/assets
     viteStaticCopy({
       targets: [
-        { src: 'node_modules/slick-carousel/slick/fonts/*', dest: 'fonts' },
-        { src: 'node_modules/slick-carousel/slick/ajax-loader.gif', dest: 'img' },
-        { src: 'resources/img/*', dest: 'img' },
-        //{ src: 'resources/fonts/*', dest: 'fonts' },
+        { src: 'node_modules/slick-carousel/slick/fonts/*', dest: 'assets/fonts' },
+        { src: 'node_modules/slick-carousel/slick/ajax-loader.gif', dest: 'assets/img' },
+        { src: 'resources/img/*', dest: 'assets/img' },
+        //{ src: 'resources/fonts/*', dest: 'assets/fonts' },
       ],
     }),
 
@@ -58,7 +58,31 @@ export default defineConfig({
   },
 
   build: {
+    outDir: 'public/build',
+    emptyOutDir: true,
     manifest: true,
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/js/[name].[hash].js',
+        chunkFileNames: 'assets/js/[name].[hash].js',
+        assetFileNames: ({ name }) => {
+          const fileName = name ?? '';
+          const ext = path.extname(fileName);
+          const base = path.basename(fileName, ext);
+
+          if (ext === '.css') {
+            return `assets/css/${base}.[hash][extname]`;
+          }
+          if (/\.(png|jpe?g|gif|svg|webp)$/.test(ext)) {
+            return `assets/img/${base}.[hash][extname]`;
+          }
+          if (/\.(woff2?|ttf|eot|otf)$/.test(ext)) {
+            return `assets/fonts/${base}.[hash][extname]`;
+          }
+          return `assets/[name]_[hash][extname]`;
+        },
+      },
+    },
   },
 });
