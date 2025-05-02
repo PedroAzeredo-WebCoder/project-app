@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sobre Nós</title>
+    <title>@yield('titulo', 'Título padrão')</title>
     <link rel="stylesheet" href="{{ asset('build/assets/css/app.B8p3F0Ej.css') }}">
 </head>
 
