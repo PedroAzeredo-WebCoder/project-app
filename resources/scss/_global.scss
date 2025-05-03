@@ -1,0 +1,176 @@
+* {
+    font-family: 'Lufga', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-position: center;
+}
+
+h1 {
+    font-size: 2.625rem !important;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 300 !important;
+}
+
+h3 {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+}
+
+h4 {
+    font-size: 1.1875rem !important;
+    font-weight: 200 !important;
+}
+
+h5 {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+h6 {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+// small{}
+
+p {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+iframe {
+    display: block;
+}
+
+section {
+    padding: 6.25rem 0;
+}
+
+.btn {
+    font-weight: 600 !important;
+}
+
+.card {
+    overflow: hidden;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+// margin's
+@mixin offset-margin($margin, $value) {
+    margin-#{$margin}: $value !important;
+}
+
+@for $i from 1 through 200 {
+
+    @each $margin in top,
+    left,
+    bottom,
+    right {
+        .margin-#{$margin}-#{$i} {
+            @include offset-margin($margin, 1px * $i);
+        }
+    }
+}
+
+//paddin'g
+@mixin offset-margin($padding, $value) {
+    padding-#{$padding}: $value !important;
+}
+
+@for $i from 1 through 200 {
+
+    @each $padding in top,
+    left,
+    bottom,
+    right {
+        .padding-#{$padding}-#{$i} {
+            @include offset-margin($padding, 1px * $i);
+        }
+    }
+}
+
+//line-clamp
+@for $i from 1 through 8 {
+    .line-clamp-#{$i} {
+        display: -webkit-box;
+        -webkit-line-clamp: #{$i};
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: #{$i};
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+}
+
+// font size's px
+@for $i from 10 through 40 {
+    .font-#{$i} {
+        font-size: #{$i}px !important;
+
+        >* {
+            font-size: #{$i}px !important;
+        }
+    }
+}
+
+// font size's rem
+@for $i from 10 through 400 {
+    .font-#{$i}rem {
+        font-size: #{calc($i/16)}rem !important;
+
+        >* {
+            font-size: #{calc($i/16)}rem !important;
+        }
+    }
+}
+
+// Z-index
+@for $i from -2 through 10 {
+    .zindex-#{$i} {
+        z-index: #{$i}px !important;
+
+        >* {
+            z-index: #{$i}px !important;
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('../fonts/lufga/Lufga.woff2') format('woff2'),
+         url('../fonts/lufga/Lufga.woff') format('woff'),
+         url('../fonts/lufga/Lufga.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

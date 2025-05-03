@@ -35,7 +35,7 @@ export default defineConfig({
         { src: 'node_modules/slick-carousel/slick/fonts/*', dest: 'assets/fonts' },
         { src: 'node_modules/slick-carousel/slick/ajax-loader.gif', dest: 'assets/img' },
         { src: 'resources/img/*', dest: 'assets/img' },
-        //{ src: 'resources/fonts/*', dest: 'assets/fonts' },
+        { src: 'resources/fonts/*', dest: 'assets/fonts' },
       ],
     }),
 

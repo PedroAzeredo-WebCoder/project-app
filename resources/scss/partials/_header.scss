@@ -1,0 +1,14 @@
+header {
+    .navbar {
+        .navbar-brand {
+            img {
+                width: 100%;
+                max-width: 200px !important;
+
+                @include media-breakpoint-down(lg) {
+                    max-width: 100px !important;
+                }
+            }
+        }
+    }
+}

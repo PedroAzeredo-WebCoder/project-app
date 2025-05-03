@@ -1,0 +1,40 @@
+
+$xs: 0;
+$sm: 540px;
+$md: 720px;
+$lg: 960px;
+$xl: 1140px;
+$xxl: 1300px;
+
+/*containers size*/
+$container-max-widths: (sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl);
+
+$grid-breakpoints: (xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl);
+
+/*colors*/
+$primary: #91ed83;
+$secondary: #5c955f;
+$light: #d8d8d8;
+$dark: #2c2c3c;
+$grey: #8c8c94;
+$danger: #B10914;
+$white: #FFFFFF;
+$black: #000000;
+
+$theme-colors: ("primary": $primary,
+  "secondary": $secondary,
+  "light": $light,
+  "dark": $dark,
+  "grey": $grey,
+  "danger": $danger,
+  "white": $white,
+  "black": $black);
