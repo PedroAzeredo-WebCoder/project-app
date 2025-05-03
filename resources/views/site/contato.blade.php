@@ -7,7 +7,8 @@
                 <div class="row justify-content-end">
                     <div class="col-6">
                         <h1>Contato</h1>
-                        <form class="row g-3" action="{{ route('contato') }}" method="GET">
+                        <form class="row g-3" action="{{ route('contato') }}" method="POST">
+                            @csrf
                             <div class="col-md-6">
                                 <label for="f_nome" class="form-label">Nome</label>
                                 <input type="text" class="form-control" name="f_nome" id="f_nome">
