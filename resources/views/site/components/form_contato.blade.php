@@ -1,3 +1,5 @@
+{{ $slot }}
+{{ $titulo ?? '' }}
 <form class="row g-3" action="{{ route('contato') }}" method="POST">
     @csrf
     <div class="col-md-6">

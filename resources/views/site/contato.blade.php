@@ -8,6 +8,7 @@
                     <div class="col-6">
                         <h1>Contato</h1>
                         @component('site.components.form_contato')
+                        <p>Entre em contato conosco</p>
                         @endcomponent
                     </div>
                 </div>
