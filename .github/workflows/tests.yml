@@ -49,5 +49,8 @@ jobs:
       - name: Build Assets
         run: npm run build
 
+      - name: List build directory
+        run: ls -l public/build
+
       - name: Tests
         run: ./vendor/bin/phpunit
