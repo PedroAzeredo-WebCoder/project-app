@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 Route::get('/principal', [PrincipalController::class, 'principal'])->name('principal');
 Route::get('/contato', [ContatoController::class, 'contato'])->name('contato');
-Route::post('/contato', [ContatoController::class, 'contato'])->name('contato');
+Route::post('/contato/store', [ContatoController::class, 'contato'])->name('contato');
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('sobre-nos');
 
 Route::get('/contato/{nome}/{email?}/{telefone?}', function ($nome, $email = null, $telefone = null) {
