@@ -36,7 +36,7 @@ RUN apk add --no-cache \
 
 # 1) Copia package.json e package-lock.json para cache de dependências
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install -g npm --force && npm ci --force
 
 # 2) Copia o resto do código e gera o build
 COPY . .
